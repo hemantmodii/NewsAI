@@ -1,5 +1,9 @@
 import streamlit as st
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Set the title of the app
 st.title("📰 AI News Article Generator")
@@ -16,11 +20,11 @@ def fetch_news_headlines(api_key):
         return []
 
 # Load API key (ideally from Streamlit secrets)
-NEWS_API_KEY = "15ad77b4ff8644f49d07ce089fb55975"  # Replace with st.secrets["NEWS_API_KEY"] for production
+NEWS_APIKEY = os.getenv("NEWS_API_KEY")  # Replace with st.secrets["NEWS_API_KEY"] for production
 GENERATE_API_URL = "http://127.0.0.1:8000/generate/"  # Define the URL for the article generation API
 
 # Fetch headlines
-headlines = fetch_news_headlines(NEWS_API_KEY)
+headlines = fetch_news_headlines(NEWS_APIKEY)
 
 # Allow user to select a headline or enter their own
 if headlines:
