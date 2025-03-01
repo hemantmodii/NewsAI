@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+transformers
+openai
+streamlit
+pydantic
+requests
+torch
+google-generativeai
+python-dotenv
+datasets
+accelerate
+bitsandbytes
